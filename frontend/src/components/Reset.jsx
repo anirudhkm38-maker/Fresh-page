@@ -4,23 +4,100 @@ import { ArrowLeft, Check, Leaf, Lock } from "lucide-react";
 import { useMotion } from "@/context/MotionContext";
 import Reveal from "@/components/Reveal";
 
-const CHIPS = [
-    "Before standing up",
-    "Before standup",
-    "After a hard meeting",
-    "Shutting down for the day",
-    "Sunday night dread",
-    "Just need a reset",
-];
-
-const AFFIRMATIONS = [
-    "This page is already turning. So can I.",
-    "The day ahead doesn't owe the day behind.",
-    "I can put it down and pick it up tomorrow.",
-    "One calm step is still a step forward.",
-    "I don't have to carry it all to care about it all.",
-    "Right now is enough to begin from.",
-];
+const VARIANTS = {
+    daily: {
+        tab: "Just a reset",
+        chips: [
+            "Before standing up",
+            "Before standup",
+            "After a hard meeting",
+            "Shutting down for the day",
+            "Sunday night dread",
+            "Just need a reset",
+        ],
+        releasePrompt:
+            "What's weighing on you? Say it out loud or type it. No one is reading this.",
+        handsA: "What's in my hands today",
+        handsB: "What isn't?",
+        handsAPlaceholder: "The few things that are actually mine to carry...",
+        handsBPlaceholder:
+            "The rest of it. Not yours. Put it down here...",
+        affirmations: [
+            "This page is already turning. So can I.",
+            "The day ahead doesn't owe the day behind.",
+            "I can put it down and pick it up tomorrow.",
+            "One calm step is still a step forward.",
+            "I don't have to carry it all to care about it all.",
+            "Right now is enough to begin from.",
+        ],
+        nudgeMain:
+            "Drink some water, eat something that makes you feel good.",
+        nudgeSub: "Look away from the screen for 20 seconds. No tracking, no logging.",
+        closing: "You're done. See you tomorrow.",
+    },
+    sunday: {
+        tab: "Sunday night",
+        chips: [
+            "The week starts tomorrow",
+            "Inbox anxiety",
+            "Monday morning meeting",
+            "Didn't do enough this weekend",
+            "Slept badly, mind racing",
+            "Just Sunday feelings",
+        ],
+        releasePrompt:
+            "What about Monday is sitting heavy? Say it out loud or type it. No one is reading this.",
+        handsA: "What am I actually carrying into Monday",
+        handsB: "What's just a story I'm telling myself",
+        handsAPlaceholder:
+            "The real things. Meetings, deadlines, that email...",
+        handsBPlaceholder:
+            "The imagined ones. The disaster rehearsal. Park it here...",
+        affirmations: [
+            "I don't have to solve Monday tonight.",
+            "I did enough this weekend. Rest counts too.",
+            "The week will unfold one day at a time, like they all do.",
+            "I can be tired on a Sunday and still be okay.",
+            "Tomorrow I get another fresh page. That's all.",
+            "Sunday me doesn't have to run Monday's meeting.",
+        ],
+        nudgeMain:
+            "Drink some water, set one small priority for the morning, and let tonight be tonight.",
+        nudgeSub: "Look away from the screen for 20 seconds. No tracking, no logging.",
+        closing: "You're done. Monday can wait until Monday.",
+    },
+    firstWeek: {
+        tab: "First week",
+        chips: [
+            "Day one nerves",
+            "Everyone seems senior",
+            "I don't know what I don't know",
+            "Onboarding overload",
+            "Lunch alone panic",
+            "Just need a reset",
+        ],
+        releasePrompt:
+            "What's making you feel new? Say it out loud or type it. No one is reading this.",
+        handsA: "What's mine to learn this week",
+        handsB: "What can wait",
+        handsAPlaceholder: "Names, tools, one process at a time...",
+        handsBPlaceholder:
+            "The pressure to know it all by Friday. Park it here...",
+        affirmations: [
+            "Nobody expects me to know this yet. That's why it's called week one.",
+            "Asking one question beats guessing for one week.",
+            "I was picked for a reason. I'll find it again tomorrow.",
+            "New is uncomfortable. New is also temporary.",
+            "I don't have to impress everyone today.",
+            "Small wins count double in week one.",
+        ],
+        nudgeMain:
+            "Drink some water, and eat lunch away from your desk if you can.",
+        nudgeSub: "Look away from the screen for 20 seconds. No tracking, no logging.",
+        closing:
+            "You're done. Week one is a marathon of small steps. See you tomorrow.",
+    },
+};
 
 const STEP_LABELS = [
     "Pick your moment",
@@ -35,6 +112,7 @@ const STEP_LABELS = [
 export default function Reset() {
     const { reduced } = useMotion();
     const [step, setStep] = useState(0);
+    const [variant, setVariant] = useState("daily");
     const [chip, setChip] = useState(null);
     const [releaseText, setReleaseText] = useState("");
     const [particles, setParticles] = useState(null);
@@ -42,6 +120,7 @@ export default function Reset() {
     const [handsB, setHandsB] = useState("");
     const [affirmation, setAffirmation] = useState(null);
     const taRef = useRef(null);
+    const v = VARIANTS[variant];
 
     useEffect(() => {
         if (step !== 1) return;
@@ -79,11 +158,18 @@ export default function Reset() {
     };
 
     const clearAll = () => {
+        setChip(null);
         setReleaseText("");
         setHandsA("");
         setHandsB("");
         setAffirmation(null);
         setParticles(null);
+    };
+
+    const switchVariant = (id) => {
+        setVariant(id);
+        clearAll();
+        setStep(0);
     };
 
     const fade = (children, key) => (
@@ -119,7 +205,7 @@ export default function Reset() {
                     Pick your moment · optional
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                    {CHIPS.map((c) => (
+                    {v.chips.map((c) => (
                         <button
                             key={c}
                             data-testid={`reset-chip-${c.toLowerCase().replace(/[^a-z]+/g, "-")}`}
@@ -144,7 +230,7 @@ export default function Reset() {
                     Continue
                 </button>
             </div>,
-            "moment"
+            `moment-${variant}`
         );
     } else if (step === 1) {
         content = fade(
@@ -211,8 +297,7 @@ export default function Reset() {
                     <BackBtn to={0} />
                 </div>
                 <p className="mt-3 font-serif text-xl sm:text-2xl text-moss leading-snug">
-                    What's weighing on you? Say it out loud or type it. No one
-                    is reading this.
+                    {v.releasePrompt}
                 </p>
                 <textarea
                     ref={taRef}
@@ -249,27 +334,27 @@ export default function Reset() {
                 <div className="mt-4 grid sm:grid-cols-2 gap-4">
                     <div>
                         <label className="text-sm font-bold text-moss/75">
-                            What's in my hands today
+                            {v.handsA}
                         </label>
                         <textarea
                             data-testid="hands-today-textarea"
                             value={handsA}
                             onChange={(e) => setHandsA(e.target.value)}
                             rows={5}
-                            placeholder="The few things that are actually mine to carry..."
+                            placeholder={v.handsAPlaceholder}
                             className="mt-2 w-full rounded-2xl border border-moss/15 bg-white/80 p-4 text-base leading-relaxed text-moss placeholder:text-moss/35 resize-none focus:outline-none"
                         />
                     </div>
                     <div>
                         <label className="text-sm font-bold text-moss/75">
-                            What isn't?
+                            {v.handsB}
                         </label>
                         <textarea
                             data-testid="hands-not-textarea"
                             value={handsB}
                             onChange={(e) => setHandsB(e.target.value)}
                             rows={5}
-                            placeholder="The rest of it. Not yours. Put it down here..."
+                            placeholder={v.handsBPlaceholder}
                             className="mt-2 w-full rounded-2xl border border-moss/15 bg-white/80 p-4 text-base leading-relaxed text-moss placeholder:text-moss/35 resize-none focus:outline-none"
                         />
                     </div>
@@ -297,7 +382,7 @@ export default function Reset() {
                     Pick a line to carry with you.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
-                    {AFFIRMATIONS.map((a, i) => (
+                    {v.affirmations.map((a, i) => (
                         <button
                             key={i}
                             data-testid={`affirmation-option-${i}`}
@@ -317,7 +402,7 @@ export default function Reset() {
                         data-testid="affirmation-display"
                         className="mt-6 font-serif text-2xl sm:text-3xl leading-snug text-moss border-l-2 border-clay pl-5"
                     >
-                        {AFFIRMATIONS[affirmation]}
+                        {v.affirmations[affirmation]}
                     </p>
                 )}
                 <button
@@ -338,12 +423,9 @@ export default function Reset() {
                     Body nudge
                 </p>
                 <p className="mt-4 font-serif text-2xl sm:text-3xl leading-snug text-moss">
-                    Drink some water, eat something that makes you feel good.
+                    {v.nudgeMain}
                 </p>
-                <p className="mt-4 text-base text-moss/70">
-                    Look away from the screen for 20 seconds. No tracking, no
-                    logging.
-                </p>
+                <p className="mt-4 text-base text-moss/70">{v.nudgeSub}</p>
                 <button
                     data-testid="reset-finish-button"
                     onClick={() => {
@@ -367,7 +449,7 @@ export default function Reset() {
                     <Check className="w-9 h-9 text-moss" />
                 </div>
                 <p className="mt-6 font-serif text-3xl sm:text-4xl text-moss">
-                    You're done. See you tomorrow.
+                    {v.closing}
                 </p>
             </div>,
             "done"
@@ -386,7 +468,8 @@ export default function Reset() {
                     </h2>
                     <p className="mt-4 text-base sm:text-lg text-moss/75 leading-relaxed max-w-xl">
                         One screen at a time. About three minutes. Then it
-                        closes — on purpose.
+                        closes — on purpose. Now in three flavours: daily,
+                        Sunday night, and first week.
                     </p>
                 </Reveal>
 
@@ -396,20 +479,45 @@ export default function Reset() {
                         className="mt-10 bg-white/70 border border-moss/10 rounded-3xl shadow-sm p-6 sm:p-10 min-h-[420px] flex flex-col justify-center"
                     >
                         {step < 6 && (
-                            <div className="flex items-center gap-2 mb-8">
-                                {STEP_LABELS.map((_, i) => (
-                                    <span
-                                        key={i}
-                                        className={`h-2 rounded-full transition-all duration-300 ${
-                                            i === step
-                                                ? "w-6 bg-moss"
-                                                : i < step
-                                                  ? "w-2 bg-sage"
-                                                  : "w-2 bg-moss/15"
-                                        }`}
-                                    />
-                                ))}
-                            </div>
+                            <>
+                                <div
+                                    className="flex flex-wrap gap-2 mb-6"
+                                    data-testid="variant-tabs"
+                                >
+                                    {Object.entries(VARIANTS).map(
+                                        ([id, val]) => (
+                                            <button
+                                                key={id}
+                                                data-testid={`variant-tab-${id}`}
+                                                onClick={() =>
+                                                    switchVariant(id)
+                                                }
+                                                className={`min-h-[40px] px-4 rounded-full text-sm font-bold border transition-all duration-200 ${
+                                                    variant === id
+                                                        ? "bg-sage text-moss border-sage"
+                                                        : "border-moss/20 text-moss/60 hover:border-moss/40 hover:text-moss"
+                                                }`}
+                                            >
+                                                {val.tab}
+                                            </button>
+                                        )
+                                    )}
+                                </div>
+                                <div className="flex items-center gap-2 mb-8">
+                                    {STEP_LABELS.map((_, i) => (
+                                        <span
+                                            key={i}
+                                            className={`h-2 rounded-full transition-all duration-300 ${
+                                                i === step
+                                                    ? "w-6 bg-moss"
+                                                    : i < step
+                                                      ? "w-2 bg-sage"
+                                                      : "w-2 bg-moss/15"
+                                            }`}
+                                        />
+                                    ))}
+                                </div>
+                            </>
                         )}
                         {content}
                     </div>

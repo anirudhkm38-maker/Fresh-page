@@ -37,5 +37,9 @@ All of the above — complete and verified (desktop + mobile screenshots, full r
 
 ## Backlog
 - P1: Replace video placeholder with real 30–60s screen recording
-- P2: Sunday-night reset variant, first-week-at-job variant, managers version (the three "idea, not built yet" cards)
-- P2: OG image for link sharing
+- P2: Managers version of the reset (the last remaining "idea, not built yet" card)
+
+## Added (second build session)
+- Sunday Night Reset and First Week at the New Job variants of the tool — variant tabs inside The reset card (daily / Sunday night / first week), each with its own chips, prompts, hands columns, 6 original affirmations, nudge and closing line; switching variants mid-flow clears everything (privacy)
+- NextIdeas section updated: only the managers version remains tagged "idea, not built yet"
+- Social share card: public/og-image.png (1200x630, cream/sage/clay brand art) + Open Graph and Twitter meta tags in index.html
