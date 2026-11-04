@@ -1,0 +1,144 @@
+{
+  "project_name": "Fresh Page by Anirudh",
+  "archetype": "ORGANIC & EARTHY",
+  "theme": "light",
+  "tech_stack": {
+    "framework": "React.js (JavaScript / JSX)",
+    "styling": "Tailwind CSS",
+    "motion": "Framer Motion",
+    "icons": "Lucide React",
+    "notifications": "Sonner (Toast)"
+  },
+  "colors": {
+    "background": "#FAF6EF",
+    "background_rgb": "250, 246, 239",
+    "sage": "#A8BFA3",
+    "sage_rgb": "168, 191, 163",
+    "deep_moss": "#3F5A4A",
+    "deep_moss_rgb": "63, 90, 74",
+    "muted_clay": "#D9A88F",
+    "muted_clay_rgb": "217, 168, 143",
+    "card_bg": "#FAF6EF",
+    "card_border": "rgba(63, 90, 74, 0.15)"
+  },
+  "typography": {
+    "headings_font": "Fraunces, serif",
+    "body_font": "Karla, sans-serif",
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Karla:ital,wght@0,300..700;1,300..700&display=swap",
+    "italic_serif_highlight_rule": "In every main section heading, highlight exactly ONE key word using italic serif with Muted Clay color: `<em className=\"font-serif italic text-[#D9A88F] not-italic-override-if-needed\">word</em>`",
+    "scale": {
+      "hero_heading": "text-4xl sm:text-5xl lg:text-6xl font-serif text-[#3F5A4A] tracking-tight leading-tight",
+      "section_heading": "text-3xl sm:text-4xl lg:text-5xl font-serif text-[#3F5A4A] tracking-tight leading-snug",
+      "card_title": "text-xl sm:text-2xl font-serif text-[#3F5A4A]",
+      "body": "text-base sm:text-lg font-sans text-[#3F5A4A]/90 leading-relaxed",
+      "subtext": "text-sm sm:text-base font-sans text-[#3F5A4A]/70 leading-normal",
+      "label": "text-xs uppercase tracking-widest font-sans font-semibold text-[#3F5A4A]/80"
+    }
+  },
+  "layout_and_spacing": {
+    "mobile_first": true,
+    "max_width": "max-w-4xl mx-auto px-4 sm:px-6 lg:px-8",
+    "section_padding": "py-16 sm:py-24 lg:py-32",
+    "card_padding": "p-6 sm:p-8",
+    "border_radius": "rounded-2xl sm:rounded-3xl",
+    "tap_targets": "min-h-[48px] px-6 py-3",
+    "navbar": {
+      "sticky": true,
+      "background": "bg-[#FAF6EF]/90 backdrop-blur-md border-b border-[#3F5A4A]/15 z-50",
+      "scroll_offset": "scroll-mt-24"
+    }
+  },
+  "components_and_sections": [
+    {
+      "id": "navbar",
+      "name": "Sticky Minimal Navbar",
+      "description": "Sticky navbar with cream background and thin moss border. Left logo 'Fresh Page' in serif, right links (Story, Reset, About, Contact), active section indicator, LinkedIn/Gmail quick links, mobile dropdown menu, and Reduced Motion toggle."
+    },
+    {
+      "id": "collaboration_lockup",
+      "name": "Wispr Flow x Fresh Page Badge",
+      "description": "Two overlapping circles (sage #A8BFA3 for Wispr Flow, clay #D9A88F for Fresh Page) with text 'Speak it, let it go.' in overlap. Plain text labels beside: 'Wispr Flow x Fresh Page'. Reused in Hero, How I Built This, and Footer."
+    },
+    {
+      "id": "hero",
+      "name": "Section 1: Hero & Breathing Circle",
+      "description": "Breathing soft sage circle (8s grow/shrink), dynamic visitor local time greeting (Morning/Afternoon/Evening), main headline with clay italic word, subtext, 'Begin my reset' primary button, and privacy note."
+    },
+    {
+      "id": "why_i_built_this",
+      "name": "Section 2: Why I Built This",
+      "description": "Large serif quote about corporate stress and asking for sympathy, followed by Anirudh's personal story of building Fresh Page with Wispr Flow."
+    },
+    {
+      "id": "the_reset",
+      "name": "Section 3: The 3-Minute Reset Tool",
+      "description": "7-step interactive reset flow: movement picker chips, 4-second breath pause countdown, release textarea with particle upward dissolve effect on 'Let it go', two soft columns ('What's in my hands today' & 'What isn't?'), 6 gentle original affirmations selector, body nudge, and peaceful closing screen."
+    },
+    {
+      "id": "see_it_in_action",
+      "name": "Section 4: See It In Action",
+      "description": "30-60s screen recording video placeholder with clear dissolve caption."
+    },
+    {
+      "id": "why_voice_helps",
+      "name": "Section 5: Why Voice Helps",
+      "description": "3 short personal experience cards about voice reflection + Wispr Flow note + disclaimer."
+    },
+    {
+      "id": "about",
+      "name": "Section 6: The Road to Fresh Page & 12 Small Wins",
+      "description": "3 animated count-up stat cards (2 yrs 10 mos at TCS, 10+ awards, 2 Star of the Month awards), 6-chapter vertical timeline with dashed sage line (Chapter 5 pause card tinted in clay), and 'Meanwhile, in my year off' 12 small wins responsive grid."
+    },
+    {
+      "id": "what_id_build_next",
+      "name": "Section 7: What I'd Build Next",
+      "description": "3 idea cards tagged 'idea, not built yet' (Sunday night reset, First week at job reset, Manager reset)."
+    },
+    {
+      "id": "how_i_built_this",
+      "name": "Section 8: How I Built This",
+      "description": "Voice-first design breakdown, zero storage privacy commitment, built with Wispr Flow & Emergent, large collaboration lockup."
+    },
+    {
+      "id": "contact",
+      "name": "Section 9: Contact",
+      "description": "Soft background with 2 floating overlapping background circles, pulsing audio sound-wave bars above headline, plain direct contact buttons for Email (with instant Copy Email address button + toast), LinkedIn, and GitHub."
+    },
+    {
+      "id": "footer",
+      "name": "Section 10: Footer",
+      "description": "Collaboration lockup, project statement, and mental health disclaimer support note."
+    }
+  ],
+  "motion_and_reduced_motion": {
+    "standard_behavior": "Gentle entrance fade-in on scroll using Framer Motion, 8-second breathing circle animation, particle dissolve on release, sound-wave bar pulse, floating background circles, count-up numbers.",
+    "reduced_motion_mode": "When Reduced Motion toggle is ON: replace ALL animations with instant renders or simple fast opacity fades, stop ALL looping motion (breathing circle, particles, drifting circles, sound waves, count-up tickers), and instantly jump scroll instead of smooth scrolling.",
+    "toggle_location": "Accessible in Navbar with clear status indicator (e.g., 'Reduced Motion: ON/OFF')."
+  },
+  "media_assets": [
+    {
+      "category": "leaves_nature",
+      "url": "https://images.unsplash.com/photo-1659834742686-4becf04e8976?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHw0fHxwZWFjZWZ1bCUyMG5hdHVyZSUyMGdyZWVuJTIwc2FnZSUyMG9yZ2FuaWMlMjBsZWF2ZXN8ZW58MHx8fHwxNzkzNzk0NDQwfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Peaceful sage plant leaves"
+    },
+    {
+      "category": "workspace_warm",
+      "url": "https://images.pexels.com/photos/14910739/pexels-photo-14910739.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Sunlit cozy room interior"
+    }
+  ],
+  "accessibility_and_testing": {
+    "testing_attribute": "Every interactive element (button, link, tab, toggle, input, card) MUST include a unique data-testid attribute in kebab-case (e.g. data-testid='begin-reset-button', data-testid='reduced-motion-toggle').",
+    "contrast_compliance": "Deep moss #3F5A4A on Cream #FAF6EF yields a contrast ratio of >7.5:1, exceeding WCAG AAA standards for legibility.",
+    "focus_states": "All focusable elements must have visible focus rings (`focus-visible:ring-2 focus-visible:ring-[#3F5A4A] focus-visible:outline-none`)."
+  },
+  "instructions_to_main_agent": [
+    "Inject Google Fonts link for Fraunces and Karla in public/index.html or index.css.",
+    "Configure custom colors in tailwind.config.js for cream (#FAF6EF), sage (#A8BFA3), deep-moss (#3F5A4A), and muted-clay (#D9A88F).",
+    "Ensure every main heading contains exactly ONE word wrapped in `<em className=\"font-serif italic text-[#D9A88F]\">`.",
+    "Implement the 7-step interactive 3-Minute Reset micro-tool strictly in static React state (no backend, no localStorage persistence, cleared when complete).",
+    "Implement the particle dissolve effect on the Release step when clicking 'Let it go'.",
+    "Implement the Reduced Motion state toggle cleanly via React Context or state so all animated components respect `reducedMotion` state.",
+    "Add explicit data-testid attributes on all interactive elements."
+  ]
+}
