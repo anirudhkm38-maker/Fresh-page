@@ -45,7 +45,7 @@ All of the above — complete and verified (desktop + mobile screenshots, full r
 - Social share card: public/og-image.jpg (1200x630, cream/sage/clay brand art) + Open Graph and Twitter meta tags in index.html
 
 ## Added (fourth build session)
-- "See it in action" now plays Anirudh's real screen recording (public/demo-video.mp4, 0.9 MB — compressed from 90 MB, 1280w H.264 + 96k AAC, faststart; poster public/demo-poster.jpg)
+- "See it in action" now plays Anirudh's real screen recording (public/demo-video.mp4, 2.3 MB voiced take, 1:44 — compressed from 117 MB, 1280w H.264 + 96k AAC, faststart; audio cleaned: high-pass 90 Hz, FFT denoise, loudness normalized to −16 LUFS, peak −2.2 dB; poster public/demo-poster.jpg)
 - Playback: muted autoplay + loop like a demo reel, "Tap for sound" pill unmutes the voice, sound toggle + pause control available; new caption "me, speaking it out loud. Sound on — that's the whole point."
 - Reduced motion: video never autoplays or loops — first-frame poster with a "Play with sound" overlay; plays with sound only when pressed
 
