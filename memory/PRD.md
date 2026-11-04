@@ -44,6 +44,14 @@ All of the above — complete and verified (desktop + mobile screenshots, full r
 - NextIdeas section updated: only the managers version remains tagged "idea, not built yet"
 - Social share card: public/og-image.jpg (1200x630, cream/sage/clay brand art) + Open Graph and Twitter meta tags in index.html
 
+## Added (fourth build session)
+- "See it in action" now plays Anirudh's real screen recording (public/demo-video.mp4, 0.9 MB — compressed from 90 MB, 1280w H.264 + 96k AAC, faststart; poster public/demo-poster.jpg)
+- Playback: muted autoplay + loop like a demo reel, "Tap for sound" pill unmutes the voice, sound toggle + pause control available; new caption "me, speaking it out loud. Sound on — that's the whole point."
+- Reduced motion: video never autoplays or loops — first-frame poster with a "Play with sound" overlay; plays with sound only when pressed
+
+## Ready for Deploy
+No database, nothing to migrate — a Deploy press ships the site (four flavors, share card, real demo video) to the live domain.
+
 ## Added (third build session)
 - Repeatable reset: flavor tabs now visible on every step including the closing screen; picking a flavor at any point clears memory and restarts that flavor; closing screen adds "Run it again anytime" line; single-use copy softened in The reset subtitle and How I Built This
 - Fourth flavor "For managers": manager-day chips (avoided 1:1, team on fumes, hard feedback, pressure from above, a hire that isn't working), release prompt for the weight of being the one people lean on, hands columns (what's mine to hold / what belongs to the team or the company), six original calm-leadership affirmations, own nudge and closing line
