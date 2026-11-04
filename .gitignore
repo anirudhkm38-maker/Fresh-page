@@ -83,3 +83,16 @@ android-sdk/
 
 # overlay black-box crash/user-report dumps — session data, never history
 **/.emergent/recordings/
+
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Emergent platform workspace state (not project code)
+.emergent/
+memory/
+plan/
+test_reports/
+test_result.md
+design_guidelines.json
