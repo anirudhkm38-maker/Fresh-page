@@ -42,4 +42,9 @@ All of the above — complete and verified (desktop + mobile screenshots, full r
 ## Added (second build session)
 - Sunday Night Reset and First Week at the New Job variants of the tool — variant tabs inside The reset card (daily / Sunday night / first week), each with its own chips, prompts, hands columns, 6 original affirmations, nudge and closing line; switching variants mid-flow clears everything (privacy)
 - NextIdeas section updated: only the managers version remains tagged "idea, not built yet"
-- Social share card: public/og-image.png (1200x630, cream/sage/clay brand art) + Open Graph and Twitter meta tags in index.html
+- Social share card: public/og-image.jpg (1200x630, cream/sage/clay brand art) + Open Graph and Twitter meta tags in index.html
+
+## Added (third build session)
+- Repeatable reset: flavor tabs now visible on every step including the closing screen; picking a flavor at any point clears memory and restarts that flavor; closing screen adds "Run it again anytime" line; single-use copy softened in The reset subtitle and How I Built This
+- Fourth flavor "For managers": manager-day chips (avoided 1:1, team on fumes, hard feedback, pressure from above, a hire that isn't working), release prompt for the weight of being the one people lean on, hands columns (what's mine to hold / what belongs to the team or the company), six original calm-leadership affirmations, own nudge and closing line
+- Ready for Deploy: no database, nothing to migrate — deploying ships the site (flavors + share card) to the live domain

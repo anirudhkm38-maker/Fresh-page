@@ -16,7 +16,7 @@ const POINTS = [
     {
         icon: Hourglass,
         title: "A finite ritual",
-        text: "Three minutes, seven small steps, then it ends. On purpose — so it never asks for more of your day.",
+        text: "Three minutes, seven small steps, then it ends. Run it once a day or five times — it never asks for more of your day.",
     },
 ];
 

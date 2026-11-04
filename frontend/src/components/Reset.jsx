@@ -97,6 +97,38 @@ const VARIANTS = {
         closing:
             "You're done. Week one is a marathon of small steps. See you tomorrow.",
     },
+    managers: {
+        tab: "For managers",
+        chips: [
+            "The 1:1 I keep avoiding",
+            "A team running on fumes",
+            "Delivering hard feedback",
+            "Pressure from above",
+            "A hire that isn't working",
+            "Just need a reset",
+        ],
+        releasePrompt:
+            "You're the one people lean on — what are you carrying? Say it out loud or type it. No one is reading this.",
+        handsA: "What's mine to hold",
+        handsB: "What belongs to the team or the company",
+        handsAPlaceholder:
+            "The decisions, the tone, the example I set...",
+        handsBPlaceholder:
+            "Their growth, their outcomes, the process. Trust it there...",
+        affirmations: [
+            "Calm is contagious. So is panic. I choose what I spread.",
+            "My job is clarity, not certainty.",
+            "A good question does more than a fast answer.",
+            "I can hold the weight without holding it alone.",
+            "The team doesn't need me perfect. It needs me steady.",
+            "Pausing is a leadership move too.",
+        ],
+        nudgeMain:
+            "Drink some water, roll your shoulders back, and unclench your jaw.",
+        nudgeSub: "Look away from the screen for 20 seconds. No tracking, no logging.",
+        closing:
+            "You're done. The team gets the steady version of you tomorrow.",
+    },
 };
 
 const STEP_LABELS = [
@@ -451,6 +483,9 @@ export default function Reset() {
                 <p className="mt-6 font-serif text-3xl sm:text-4xl text-moss">
                     {v.closing}
                 </p>
+                <p className="mt-4 text-sm sm:text-base text-moss/60">
+                    Run it again anytime — the flavours above are always open.
+                </p>
             </div>,
             "done"
         );
@@ -467,9 +502,9 @@ export default function Reset() {
                         The <em className="italic text-clay">reset</em>
                     </h2>
                     <p className="mt-4 text-base sm:text-lg text-moss/75 leading-relaxed max-w-xl">
-                        One screen at a time. About three minutes. Then it
-                        closes — on purpose. Now in three flavours: daily,
-                        Sunday night, and first week.
+                        One screen at a time. About three minutes. Run it as
+                        often as you need — daily, Sunday night, first week,
+                        or for leading a team.
                     </p>
                 </Reveal>
 
@@ -478,46 +513,40 @@ export default function Reset() {
                         data-testid="reset-card"
                         className="mt-10 bg-white/70 border border-moss/10 rounded-3xl shadow-sm p-6 sm:p-10 min-h-[420px] flex flex-col justify-center"
                     >
-                        {step < 6 && (
-                            <>
-                                <div
-                                    className="flex flex-wrap gap-2 mb-6"
-                                    data-testid="variant-tabs"
+                        <div
+                            className="flex flex-wrap gap-2 mb-6"
+                            data-testid="variant-tabs"
+                        >
+                            {Object.entries(VARIANTS).map(([id, val]) => (
+                                <button
+                                    key={id}
+                                    data-testid={`variant-tab-${id}`}
+                                    onClick={() => switchVariant(id)}
+                                    className={`min-h-[40px] px-4 rounded-full text-sm font-bold border transition-all duration-200 ${
+                                        variant === id
+                                            ? "bg-sage text-moss border-sage"
+                                            : "border-moss/20 text-moss/60 hover:border-moss/40 hover:text-moss"
+                                    }`}
                                 >
-                                    {Object.entries(VARIANTS).map(
-                                        ([id, val]) => (
-                                            <button
-                                                key={id}
-                                                data-testid={`variant-tab-${id}`}
-                                                onClick={() =>
-                                                    switchVariant(id)
-                                                }
-                                                className={`min-h-[40px] px-4 rounded-full text-sm font-bold border transition-all duration-200 ${
-                                                    variant === id
-                                                        ? "bg-sage text-moss border-sage"
-                                                        : "border-moss/20 text-moss/60 hover:border-moss/40 hover:text-moss"
-                                                }`}
-                                            >
-                                                {val.tab}
-                                            </button>
-                                        )
-                                    )}
-                                </div>
-                                <div className="flex items-center gap-2 mb-8">
-                                    {STEP_LABELS.map((_, i) => (
-                                        <span
-                                            key={i}
-                                            className={`h-2 rounded-full transition-all duration-300 ${
-                                                i === step
-                                                    ? "w-6 bg-moss"
-                                                    : i < step
-                                                      ? "w-2 bg-sage"
-                                                      : "w-2 bg-moss/15"
-                                            }`}
-                                        />
-                                    ))}
-                                </div>
-                            </>
+                                    {val.tab}
+                                </button>
+                            ))}
+                        </div>
+                        {step < 6 && (
+                            <div className="flex items-center gap-2 mb-8">
+                                {STEP_LABELS.map((_, i) => (
+                                    <span
+                                        key={i}
+                                        className={`h-2 rounded-full transition-all duration-300 ${
+                                            i === step
+                                                ? "w-6 bg-moss"
+                                                : i < step
+                                                  ? "w-2 bg-sage"
+                                                  : "w-2 bg-moss/15"
+                                        }`}
+                                    />
+                                ))}
+                            </div>
                         )}
                         {content}
                     </div>
